@@ -9,7 +9,7 @@ CREATE TABLE `employee_db`.`employees` (
 
 -- insert 4 employee
 LOCK TABLES `employee_db`.`employees` WRITE;
-INSERT INTO `employee_db`.`employees` VALUES 
+INSERT INTO `employee_db`.`employees` VALUES
 (1,'Samantha Mackenzie','EMP97',80000),
 (2,'Layla Benn','EMP91',92000),
 (3,'Luis Alberto','EMP99',84000),
@@ -28,7 +28,7 @@ BEGIN
 	IF _id = 0 THEN
 		INSERT INTO employees(name,employee_code,salary)
 		VALUES (_name,_employee_code,_salary);
-        
+
 	ELSE
 		UPDATE employees
         SET name = _name,
@@ -36,6 +36,6 @@ BEGIN
         salary = _salary
         WHERE id = _id;
 	END IF;
-    
+
     SELECT ROW_COUNT() AS 'affectedRows';
 END

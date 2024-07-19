@@ -1,26 +1,26 @@
-const express = require('express'),
+const express = require("express"),
     app = express(),
-    bodyparser = require('body-parser');
-require('express-async-errors')
+    bodyparser = require("body-parser");
+require("express-async-errors");
 
-const db = require('./db'),
-    employeeRoutes = require('./controllers/employee.controller')
-
+const db = require("./db"),
+    employeeRoutes = require("./controllers/employee.controller");
 
 //middleware
-app.use(bodyparser.json())
-app.use('/api/employees', employeeRoutes)
+app.use(bodyparser.json());
+app.use("/api/employees", employeeRoutes);
 app.use((err, req, res, next) => {
-    console.log(err)
-    res.status(err.status || 500).send('Something went wrong!')
-})
-
+    console.log(err);
+    res.status(err.status || 500).send("Something went wrong!");
+});
 
 //first make sure db connection is successful
 //then start the express server.
 db.query("SELECT 1")
     .then(() => {
-        console.log('db connection  succeeded.')
-        app.listen(() => console.log(`server started at port`));
+        console.log("AWS RDS  MySQL Database connection  succeeded.");
+        app.listen(3000, () =>
+            console.log(`server started at ${process.env.PORT}`)
+        );
     })
-    .catch(err => console.log('db connection failed. \n' + err))
+    .catch((err) => console.log("db connection failed. \n" + err));
