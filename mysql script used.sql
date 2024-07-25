@@ -6,6 +6,7 @@ CREATE TABLE `employee_db`.`employees` (
   `salary` int DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-- ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 -- insert 4 employee
 LOCK TABLES `employee_db`.`employees` WRITE;
@@ -26,7 +27,7 @@ IN _salary INT
 )
 BEGIN
 	IF _id = 0 THEN
-		INSERT INTO employees(name,employee_code,salary)
+		INSERT INTO `employees`(name,employee_code,salary)
 		VALUES (_name,_employee_code,_salary);
 
 	ELSE

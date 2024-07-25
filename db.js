@@ -12,4 +12,10 @@ const db = mysql.createPool({
     port: process.env.PORT,
 });
 
+// const db = mysql.createPool({
+//     host: "localhost",
+//     user: "admin",
+//     password: "password",
+//     database: "employee_db",
+// });
 module.exports = db;
