@@ -14,7 +14,7 @@ app.use((err, req, res, next) => {
     res.status(err.status || 500).send("Something went wrong!");
 });
 
-//first make sure db connection is successful
+//first make sure db connection is successful.
 //then start the express server.
 db.query("SELECT 1")
     .then(() => {
