@@ -8,6 +8,12 @@ const db = require("./db"),
 
 //middleware
 app.use(bodyparser.json());
+app.get("/", function (req, res) {
+    res.send(
+        "This app works as expected and it is connected to AWS RDS MySQL server on port 3306."
+    );
+});
+
 app.use("/api/employees", employeeRoutes);
 app.use((err, req, res, next) => {
     console.log(err);
