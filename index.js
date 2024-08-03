@@ -8,6 +8,10 @@ const db = require("./db"),
 
 //middleware
 app.use(bodyparser.json());
+app.get('/healthcheck', (req, res) => {
+  res.status(200).send('OK');
+});
+
 app.get("/", function (req, res) {
     res.send(
         "This app works as expected and it is connected to AWS RDS MySQL server on port 3306."
